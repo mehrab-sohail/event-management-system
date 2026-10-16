@@ -1,10 +1,22 @@
 const API_KEY = import.meta.env.VITE_TICKETMASTER_KEY
 const BASE_URL = 'https://app.ticketmaster.com/discovery/v2'
 
-// Fetches a short list of events. Returns an array, or throws an error.
-export async function fetchEvents() {
-  const url = `${BASE_URL}/events.json?apikey=${API_KEY}&size=5&countryCode=US`
-  const response = await fetch(url)
+// Fetches events. Pass a keyword to search, or leave it empty for all events.
+export async function fetchEvents(keyword = '') {
+  const params = new URLSearchParams({
+    apikey: API_KEY,
+    size: '12',
+    countryCode: 'US',
+    sort: 'date,asc',
+  })
+
+  if (keyword.trim()) {
+    params.set('keyword', keyword.trim())
+  }
+
+ 
+
+  const response = await fetch(`${BASE_URL}/events.json?${params.toString()}`)
 
   if (!response.ok) {
     throw new Error(`Ticketmaster request failed with status ${response.status}`)

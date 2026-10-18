@@ -225,3 +225,16 @@ body {
   color: #c0392b;
   margin: 0;
 }
+.logout-button {
+  background: none;
+  border: none;
+  color: #4a4a55;
+  font-size: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+}
+
+.logout-button:hover {
+  color: #6c4cf1;
+}

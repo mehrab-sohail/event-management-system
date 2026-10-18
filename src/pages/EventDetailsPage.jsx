@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { fetchEventById } from '../services/ticketmaster.js'
+import RegisterButton from '../components/RegisterButton.jsx'
 
 function EventDetailsPage() {
   const { id } = useParams()
@@ -28,6 +29,7 @@ function EventDetailsPage() {
       <p><strong>Venue:</strong> {event.venue}</p>
       <p><strong>Location:</strong> {event.location}</p>
       <p>{event.description}</p>
+      <RegisterButton event={event} />
       {event.url && (
         <a href={event.url} target="_blank" rel="noreferrer" className="details-link">
           Buy tickets on Ticketmaster

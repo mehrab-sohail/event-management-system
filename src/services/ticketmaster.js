@@ -1,13 +1,14 @@
 const API_KEY = import.meta.env.VITE_TICKETMASTER_KEY
 const BASE_URL = 'https://app.ticketmaster.com/discovery/v2'
 
-// Fetches events. Keyword and category are both optional.
+// Fetches upcoming events. Keyword and category are optional.
 export async function fetchEvents(keyword = '', category = '') {
   const params = new URLSearchParams({
     apikey: API_KEY,
     size: '12',
     countryCode: 'US',
     sort: 'date,asc',
+    startDateTime: new Date().toISOString().slice(0, 19) + 'Z',
   })
 
   if (keyword.trim()) {
@@ -35,6 +36,7 @@ export async function fetchEvents(keyword = '', category = '') {
     image: event.images?.[0]?.url ?? '',
   }))
 }
+
 // Fetches one event by its ID, with the full details we need.
 export async function fetchEventById(id) {
   const params = new URLSearchParams({ apikey: API_KEY })

@@ -1,8 +1,8 @@
 const API_KEY = import.meta.env.VITE_TICKETMASTER_KEY
 const BASE_URL = 'https://app.ticketmaster.com/discovery/v2'
 
-// Fetches events. Pass a keyword to search, or leave it empty for all events.
-export async function fetchEvents(keyword = '') {
+// Fetches events. Keyword and category are both optional.
+export async function fetchEvents(keyword = '', category = '') {
   const params = new URLSearchParams({
     apikey: API_KEY,
     size: '12',
@@ -14,7 +14,9 @@ export async function fetchEvents(keyword = '') {
     params.set('keyword', keyword.trim())
   }
 
- 
+  if (category) {
+    params.set('classificationName', category)
+  }
 
   const response = await fetch(`${BASE_URL}/events.json?${params.toString()}`)
 

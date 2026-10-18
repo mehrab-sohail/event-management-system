@@ -4,6 +4,7 @@ import EventsPage from './pages/EventsPage.jsx'
 import EventDetailsPage from './pages/EventDetailsPage.jsx'
 import LoginPage from './pages/LoginPage.jsx'
 import RegisterPage from './pages/RegisterPage.jsx'
+import MyEventsPage from './pages/MyEventsPage.jsx'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/events/:id" element={<EventDetailsPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/my-events" element={<MyEventsPage />} />
         </Routes>
       </main>
     </BrowserRouter>

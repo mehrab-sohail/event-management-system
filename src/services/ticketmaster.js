@@ -35,3 +35,26 @@ export async function fetchEvents(keyword = '', category = '') {
     image: event.images?.[0]?.url ?? '',
   }))
 }
+// Fetches one event by its ID, with the full details we need.
+export async function fetchEventById(id) {
+  const params = new URLSearchParams({ apikey: API_KEY })
+  const response = await fetch(`${BASE_URL}/events/${id}.json?${params.toString()}`)
+
+  if (!response.ok) {
+    throw new Error(`Ticketmaster request failed with status ${response.status}`)
+  }
+
+  const event = await response.json()
+
+  return {
+    id: event.id,
+    name: event.name,
+    date: event.dates?.start?.localDate ?? 'Date to be announced',
+    time: event.dates?.start?.localTime ?? '',
+    venue: event._embedded?.venues?.[0]?.name ?? 'Venue to be announced',
+    location: event._embedded?.venues?.[0]?.city?.name ?? '',
+    description: event.info ?? event.pleaseNote ?? 'No description provided.',
+    image: event.images?.[0]?.url ?? '',
+    url: event.url ?? '',
+  }
+}

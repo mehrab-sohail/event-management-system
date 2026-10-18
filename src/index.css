@@ -238,3 +238,33 @@ body {
 .logout-button:hover {
   color: #6c4cf1;
 }
+/* Button styles on the event details page */
+.details button.details-link,
+.details .details-link {
+  display: inline-block;
+  padding: 12px 22px;
+  margin-top: 12px;
+  margin-right: 8px;
+  border: none;
+  border-radius: 8px;
+  background: #6c4cf1;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.details button.details-link:hover,
+.details .details-link:hover {
+  background: #5a3ce0;
+}
+
+.details .details-cancel {
+  background: #c0392b;
+}
+
+.details .details-cancel:hover {
+  background: #a93226;
+}

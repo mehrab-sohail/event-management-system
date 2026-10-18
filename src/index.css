@@ -191,3 +191,37 @@ body {
   text-decoration: none;
   font-weight: 600;
 }
+/* Login and register */
+.auth-card {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.auth-card input {
+  padding: 10px 14px;
+  border: 1px solid #d4d4dc;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.auth-card button {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #6c4cf1;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.form-error {
+  color: #c0392b;
+  margin: 0;
+}

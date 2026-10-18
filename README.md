@@ -34,9 +34,9 @@ A React web app for exploring events from the Ticketmaster Discovery API, with s
 
 ## Current Status
 
-Completed: API integration, keyword search, category filters, event details page, login and register pages (simulated, using Redux and Local Storage), routing, responsive layout.
+Completed: API integration, keyword search, category filters, event details page, login and register pages (simulated, using Redux and Local Storage), logout, routing, responsive layout.
 
-Not yet completed: logout button, event registration and cancellation, My Events page with protected routes.
+Not yet completed: event registration and cancellation, My Events page with protected routes, date filter.
 
 ## Git Workflow
 
